@@ -1,13 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import Header from "../Header"
 import QuoteHero from '../../components/QuoteHero'
 import {useFetch} from '../../hooks/useFetch'
+import Footer from '../Footer'
 
 interface Props {
   author: string
 }
 
-const Container = styled.div``
+const Title = styled.h2`
+font-weight: 700;
+font-size: 36px;
+line-height: 42px;
+color: #333333;
+margin-left: auto;
+margin-right: auto;
+margin-top: 48px;
+`
 
 const List: React.FC<Props> = ({author}) => {
   const {data, loading, error} = useFetch(
@@ -22,11 +32,14 @@ const List: React.FC<Props> = ({author}) => {
 
   if (Array.isArray(data)) {
     return (
-      <Container>
+      <>
+        <Header />
+        {<Title>{author}</Title>}
         {data.splice(0, 2).map((quote) => (
-          <QuoteHero key={quote._id} text={quote.content} />
+          <QuoteHero list key={quote._id} text={quote.content} />
         ))}
-      </Container>
+        <Footer />
+      </>
     )
   } else {
     return null

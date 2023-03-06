@@ -12,8 +12,7 @@ display: flex;
 margin-left: 99px;
 `
 
-const Container = styled.div`
-  margin-top: 225px;
+const Container = styled.div<{showTitle: boolean}>`
   display: flex;
   justify-content: center;
   &:before {
@@ -23,13 +22,23 @@ const Container = styled.div`
     height: 301px;
     background: #F7DF94;
   }
+  ${props => props.showTitle 
+    ? 
+    `margin-top: 140px;
+    &:before {
+     height: auto; 
+    }` 
+    : 'margin-top: 225px;'}  
 `
+
+
 interface Props {
   text: string
+  list?: boolean
 }
-const QuoteHero: React.FC<Props> = ({ text }) => {  
+const QuoteHero: React.FC<Props> = ({ text, list = false }) => {  
   return (
-    <Container>
+    <Container showTitle={list}>
       <QuoteText>
         “{text}”
       </QuoteText>      

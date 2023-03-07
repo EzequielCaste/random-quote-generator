@@ -6,13 +6,26 @@ font-size: 18px;
 color: #4F4F4F;
 display: flex;
 justify-content: flex-end;
+cursor: pointer;
+width: fit-content;
 `
 
-const Header = () => {
+const HeaderContainer = styled.div`
+display: flex;
+justify-content: flex-end;
+`
+
+interface Props {
+  handleClick: () => void
+}
+
+const Header:React.FC<Props> = ({ handleClick }) => {
   return (
-    <StyledHeader>
-      random 🔀
-    </StyledHeader>
+    <HeaderContainer>
+      <StyledHeader onClick={handleClick}>
+        random 🔀
+      </StyledHeader>
+    </HeaderContainer>
   )
 }
 

@@ -1,17 +1,28 @@
 import QuoteFooter from '../../components/QuoteFooter'
 import QuoteHero from '../../components/QuoteHero'
-import {IData, useFetch} from '../../hooks/useFetch'
+import {IData} from '../../hooks/useFetch'
+import styled from 'styled-components'
 
-const Main = () => {
-  const {data, loading, error} = useFetch('https://api.quotable.io/random')
+const LoadingText = styled.p`
+font-weight: 700;
+font-size: 36px;
+line-height: 42px;
+height: inherit;
+color: #333333;
+display: grid;
+place-items: center;
+`
 
-  if (loading) return <h1>Loading...</h1>
+interface Props {
+  quote: IData
+  loading: boolean
+}
 
-  if (error) console.log(error)
+const Main: React.FC<Props> = ({ quote, loading }) => {
 
-  if (!data) return null
+  if (loading) return <LoadingText>Loading...</LoadingText>
 
-  const { author, content }: IData = data as IData
+  const { author, content }: IData = quote as IData 
 
   return (
     <>

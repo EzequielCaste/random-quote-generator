@@ -19,7 +19,6 @@ const Container = styled.div<{showTitle: boolean}>`
     content: '';
     display: inline-block;
     width: 8px;
-    height: 301px;
     background: #F7DF94;
   }
   ${props => props.showTitle 

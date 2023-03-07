@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Quotes />
     </Route>
     <Route path="/list/:author">
-        {(params) => <List author={params.author ?? ''} />}
+        {(params) => <Quotes author={params.author ?? ''} />}
       </Route>
   </React.StrictMode>,
 )

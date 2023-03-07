@@ -44,8 +44,9 @@ export interface IData {
   _id?: string
 }
 
-interface IDataAuthor {
+export interface IDataAuthor {
   count: number
+  content?: string
   lastItemIndex: null
   page: number
   results: IData[]

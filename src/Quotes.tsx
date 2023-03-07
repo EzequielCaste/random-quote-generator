@@ -2,15 +2,23 @@ import {useEffect, useRef, useState} from 'react'
 import Footer from './layout/Footer'
 import Header from './layout/Header'
 import Main from './layout/Main'
+ import {IDataAuthor, IData} from './hooks/useFetch'
 
+interface Props {
+  author?: string
+}
 
+const Quotes: React.FC<Props> = ({ author = '' } ) => {
+  let decodedAuthor;
+  let url = 'https://api.quotable.io/random'
 
-const Quotes: React.FC = () => {
+  if (author) {
+    decodedAuthor = window.decodeURIComponent(author).toLowerCase()
+    url = `https://quotable.io/quotes?author=${decodedAuthor}`
+  }
+
   const [loading, setLoading] = useState(false)
-  const [quote, setQuote] = useState({
-    author: '',
-    content: '',
-  })
+  const [quote, setQuote] = useState<IDataAuthor | IData | IData[]>()
 
   const shouldFetch = useRef(true)
 
@@ -18,13 +26,18 @@ const Quotes: React.FC = () => {
     if (shouldFetch.current) {
       setLoading(true)
       shouldFetch.current = false
-      fetch('https://api.quotable.io/random')
+      fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
-          setQuote({
-            author: data.author,
-            content: data.content,
-          })
+          if (author) {
+            //console.log(data);
+            setQuote(data)
+          } else {
+            setQuote({
+              author: data.author,
+              content: data.content,
+            })
+          }
           setLoading(false)
         })
         .finally(() => {

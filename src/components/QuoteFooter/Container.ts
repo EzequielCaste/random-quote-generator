@@ -24,7 +24,7 @@ const Container = styled.div`
     width: 472px;
   }
   @media all and (min-width: 900px) {
-    margin: 25px auto 0px auto;
+    margin: 25px auto 15px auto;
     padding: 40px 20px;
   }
   @media all and (min-width: 1440px) {

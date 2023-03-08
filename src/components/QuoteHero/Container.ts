@@ -27,7 +27,16 @@ const Container = styled.div<{showTitle: boolean}>`
     &:before {
      height: auto; 
     }` 
-    : 'margin-top: 225px;'}  
+    : 'margin-top: 125px;'}  
+  }
+  @media all and (min-width: 900px) {
+    ${props => props.showTitle 
+      ? 
+      `margin-top: 140px;
+      &:before {
+       height: auto; 
+      }` 
+      : 'margin-top: 225px;'}  
   }
 `
 

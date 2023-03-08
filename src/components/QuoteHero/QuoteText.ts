@@ -11,6 +11,10 @@ margin-left: 8px;
 
 @media all and (min-width: 600px) {
   width: 614px;
+  margin-left: 60px;
+  font-size: 28px;
+}
+@media all and (min-width: 900px) {
   margin-left: 99px;
   font-size: 36px;
 }

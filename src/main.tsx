@@ -3,7 +3,6 @@ import { Route } from "wouter";
 import ReactDOM from 'react-dom/client'
 import Quotes from './Quotes'
 import './index.css'
-import List from './layout/List';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

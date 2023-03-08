@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useLocation } from 'wouter'
 
 const StyledHeader = styled.header`
 font-weight: 500;
@@ -20,9 +21,14 @@ interface Props {
 }
 
 const Header:React.FC<Props> = ({ handleClick }) => {
+  const [location, setLocation] = useLocation();
+  const onClickFn = location.includes('list') 
+  ? () => setLocation('/')
+  : handleClick
+
   return (
     <HeaderContainer>
-      <StyledHeader onClick={handleClick}>
+      <StyledHeader onClick={onClickFn}>
         random 🔀
       </StyledHeader>
     </HeaderContainer>

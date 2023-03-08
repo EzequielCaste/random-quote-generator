@@ -17,5 +17,12 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding: 31px 100px;
+  padding: 5px;
+}
+
+
+@media all and (min-width: 600px) {
+  #root {
+    padding: 31px 100px;
+  }
 }

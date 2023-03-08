@@ -18,6 +18,10 @@ interface Props {
   loading: boolean
 }
 
+const Div = styled.div`
+  margin-bottom: 40px;
+`
+
 const Main: React.FC<Props> = ({quote, loading}) => {
   if (loading) return <LoadingText>Loading...</LoadingText>
 
@@ -31,7 +35,7 @@ const Main: React.FC<Props> = ({quote, loading}) => {
       .map((quote) => <QuoteHero key={quote._id} list text={quote.content} />)
     return (
       <>
-        {renderQuotes}
+        <Div>{renderQuotes}</Div>
         <QuoteFooter author={quotesArray[0].author} />
       </>
     )

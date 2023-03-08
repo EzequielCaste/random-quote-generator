@@ -21,10 +21,15 @@ const Container = styled.div`
   @media all and (min-width: 600px) {
     font-size: 24px;
     margin: 80px auto 16px auto;
-    width: 672px;
+    width: 472px;
   }
   @media all and (min-width: 900px) {
+    margin: 25px auto 0px auto;
+    padding: 40px 20px;
+  }
+  @media all and (min-width: 1440px) {
     margin: 109px auto 16px auto;
+    padding: 50px 30px;
   }
 `
 export default Container

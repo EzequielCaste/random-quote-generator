@@ -6,7 +6,9 @@
   font-family: 'Raleway', sans-serif!important;
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -20,7 +22,23 @@ body {
   padding: 5px;
   width: 100%;
   max-width: 2000px;
+}
 
+.styled-scrollbars {
+  /* Foreground, Background */
+  scrollbar-color: rgb(247, 223, 148) rgb(255,255,255);
+}
+.styled-scrollbars::-webkit-scrollbar {
+  width: 5px; /* Mostly for vertical scrollbars */
+  height: 5px; /* Mostly for horizontal scrollbars */
+}
+.styled-scrollbars::-webkit-scrollbar-thumb {
+  /* Foreground */
+  background: rgb(247, 223, 148);
+}
+.styled-scrollbars::-webkit-scrollbar-track {
+  /* Background */
+  background: rgb(255,255,255);
 }
 
 

@@ -1,4 +1,4 @@
-# random-quote-generator
+# Random Quote Generator
 
 A random quote generator using **React + TypeScript**. Developed as a part of **devChallenges Front-End Developer Challenge**.
 
